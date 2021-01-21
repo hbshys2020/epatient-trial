@@ -2,29 +2,34 @@
 <?php
 #########################################################################
 # File Name: trial
-# Desc:
-# Author: heyunsheng
-# mail: heyunsheng@trialyun.com
+# Desc: trial
+# Author: trial
+# mail: trial@epatient.com
 # Created Time: Wed 20 Jan 2021 09:07:36 PM CST
 #########################################################################
 
 $dir = __DIR__.'/..';
 
 if (!file_exists($dir.'/autoload.php')) {
-    $dir = __DIR__.'/../vendor';
+    $dir = __DIR__.'/..';
 }
 
-if (!file_exists($dir.'/autoload.php')) {
+if (!file_exists($dir.'/vendor/autoload.php')) {
     $dir = __DIR__.'/../../..';
 }
 
-if (!file_exists($dir.'/autoload.php')) {
+if (!file_exists($dir.'/vendor/autoload.php')) {
+    $dir = __DIR__.'/../../../..';
+}
+
+if (!file_exists($dir.'/vendor/autoload.php')) {
     echo 'Autoload not found.';
     exit(1);
 }
 
 require $dir.'/vendor/autoload.php';
 require $dir.'/init.inc.php';
+
 use Symfony\Component\Console\Application;
 
 use SUSU\Command\Model;
