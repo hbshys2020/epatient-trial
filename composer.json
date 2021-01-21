@@ -15,11 +15,5 @@
             "SUSU\\":"./src/"
          }
     },
-    "bin": ["bin/trial"],
-    "repositories": {
-        "packagist": {
-            "type": "composer",
-            "url": "https://mirrors.aliyun.com/composer/"
-        }
-    }
+    "bin": ["bin/trial"]
 }
