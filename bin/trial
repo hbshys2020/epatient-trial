@@ -30,12 +30,16 @@ if (!file_exists($dir.'/vendor/autoload.php')) {
 require $dir.'/vendor/autoload.php';
 require $dir.'/init.inc.php';
 
-use Symfony\Component\Console\Application;
+define('TRIAL_VERSION','1.0.0');
 
-use SUSU\Command\Model;
+$application = new \Symfony\Component\Console\Application();
 
-$application = new Application();
+$application->add(new \Trial\Model());
+$application->add(new \Trial\Controller());
+$application->add(new \Trial\Service());
 
-$application->add(new Model());
+$application->add(new \Trial\ApiModel());
+$application->add(new \Trial\ApiController());
+$application->add(new \Trial\ApiService());
 
 $application->run();

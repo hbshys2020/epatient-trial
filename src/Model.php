@@ -1,5 +1,5 @@
 <?php
-namespace SUSU\Command;
+namespace Trial;
 
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\Table;
@@ -16,8 +16,8 @@ class Model extends Command
         $this->addArgument('fileName', InputArgument::REQUIRED, '文件名称')
              ->addArgument('tableName', InputArgument::REQUIRED, '表名')
              ->addArgument('desc', InputArgument::REQUIRED, '描述')
-             ->setDescription('描述')
-             ->setHelp('帮助');
+             ->setDescription('Create Core Model')
+             ->setHelp('Create Core Model');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
@@ -46,6 +46,9 @@ class Model extends Command
             if($column['Key'] == 'PRI'){
                 $primaryKey = $column['Field'];
             }else{
+                if(in_array($column['Field'],['created_at', 'updated_at', 'deleted_at'])){
+                    continue;
+                }
                 $fillable[] = "'".$column['Field']."'";
             }
         }
@@ -70,8 +73,8 @@ class Model extends Command
         $createdTime = date('Y-m-d H:i:s l');
         $tableName   = $arguments['tableName'];
         $string = str_replace(
-            ['{{fileName}}','{{desc}}','{{author}}','{{mail}}','{{createdTime}}','{{model}}','{{primaryKey}}','{{tableName}}','{{fillable}}'],
-            [$fileName,     $desc,     $author,      $mail,    $createdTime,      $arguments['fileName'],     $primaryKey,    $tableName,     implode(', ',$fillable)],
+            ['{{TRIAL_VERSION}}','{{fileName}}','{{desc}}','{{author}}','{{mail}}','{{createdTime}}','{{model}}','{{primaryKey}}','{{tableName}}','{{fillable}}'],
+            [TRIAL_VERSION,      $fileName,     $desc,     $author,      $mail,    $createdTime,      $arguments['fileName'],     $primaryKey,    $tableName,     implode(', ',$fillable)],
             $this->templates(),
         );
         touch(ROOT_PATH.'/'.$fileName) && chmod(ROOT_PATH.'/'.$fileName,0666) && file_put_contents(ROOT_PATH.'/'.$fileName,$string);
@@ -86,6 +89,7 @@ class Model extends Command
 # Author: {{author}}
 # mail: {{mail}}
 # Created Time: {{createdTime}}
+# Trial Version: {{TRIAL_VERSION}}
 #########################################################################
 
 use Db\Eloquent as Model;
