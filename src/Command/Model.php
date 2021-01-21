@@ -95,6 +95,7 @@ class {{model}}Model extends Model {
     protected \$table      = '{{tableName}}';
     protected \$primaryKey = '{{primaryKey}}';
     protected \$fillable   = [{{fillable}}];
+    protected \$hidden     = ['created_at', 'updated_at', 'deleted_at'];
 }
 TEMPLATE;
         return $templates;
