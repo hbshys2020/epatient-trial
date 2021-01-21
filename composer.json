@@ -1,0 +1,25 @@
+{
+    "name": "epatient/trial",
+    "description": "susu命令行",
+    "authors": [
+        {
+            "name": "susu",
+            "email": "trialyun@epatient.com"
+        }
+    ],
+    "require": {
+        "symfony/console": "^5.2"
+    },
+    "autoload":{
+        "psr-4":{
+            "SUSU\\":"./src/"
+         }
+    },
+    "bin": ["bin/susu"],
+    "repositories": {
+        "packagist": {
+            "type": "composer",
+            "url": "https://mirrors.aliyun.com/composer/"
+        }
+    }
+}

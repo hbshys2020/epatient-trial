@@ -1,0 +1,23 @@
+#!/usr/bin/env php
+<?php
+#########################################################################
+# File Name: trial
+# Desc:
+# Author: heyunsheng
+# mail: heyunsheng@trialyun.com
+# Created Time: Wed 20 Jan 2021 09:07:36 PM CST
+#########################################################################
+
+$dir = __DIR__.'/..';
+
+require $dir.'/vendor/autoload.php';
+require $dir.'/../../init.inc.php';
+use Symfony\Component\Console\Application;
+
+use SUSU\Command\Model;
+
+$application = new Application();
+
+$application->add(new Model());
+
+$application->run();
