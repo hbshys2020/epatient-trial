@@ -15,7 +15,7 @@
             "SUSU\\":"./src/"
          }
     },
-    "bin": ["bin/susu"],
+    "bin": ["bin/trial"],
     "repositories": {
         "packagist": {
             "type": "composer",
