@@ -57,8 +57,8 @@ namespace Service;
 
 class {{Service}} {
     /**
-     * 详情 version
-     * @package  PACKAGE
+     * 详情 VERSION
+     * @package PACKAGE
      * @param string \$id* ID
      * @return json
      *
@@ -68,8 +68,8 @@ class {{Service}} {
         return \$this->success(\$data);
     }
     /**
-     * 列表 version
-     * @package  PACKAGE
+     * 列表 VERSION
+     * @package PACKAGE
      * @param int \$params* PARAMS
      * @return json
      *
@@ -79,8 +79,8 @@ class {{Service}} {
         return \$data;
     }
     /**
-     * 创建 version
-     * @package  PACKAGE
+     * 创建 VERSION
+     * @package PACKAGE
      * @param string \$params* PARAMS
      * @return json
      *
@@ -90,8 +90,8 @@ class {{Service}} {
         return \$data;
     }
     /**
-     * 更新 version
-     * @package  PACKAGE
+     * 更新 VERSION
+     * @package PACKAGE
      * @param string \$params* PARAMS
      * @return json
      *

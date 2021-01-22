@@ -55,8 +55,8 @@ class ApiController extends Command
 
 class {{Controller}}Controller extends \Auth\Api {
     /**
-     * 详情 version
-     * @package  PACKAGE
+     * 详情 VERSION
+     * @package PACKAGE
      * @http-method get
      * @param string \$id* ID
      *
@@ -73,8 +73,8 @@ class {{Controller}}Controller extends \Auth\Api {
         return \$this->success(\$data);
     }
     /**
-     * 药品列表 version
-     * @package  PACKAGE
+     * 列表 VERSION
+     * @package PACKAGE
      * @http-method get
      * @param int \$page* PAGE
      * @param int \$page_size* PAGESIZE
@@ -93,8 +93,8 @@ class {{Controller}}Controller extends \Auth\Api {
         return \$this->success(\TYL\Util::opz(\$data));
     }
     /**
-     * 创建药品 version
-     * @package  PACKAGE
+     * 创建 VERSION
+     * @package PACKAGE
      * @http-method post
      * @param string \$name* NAME
      *
@@ -111,8 +111,8 @@ class {{Controller}}Controller extends \Auth\Api {
         return \$this->success(\$data);
     }
     /**
-     * 更新 version
-     * @package  PACKAGE
+     * 更新 VERSION
+     * @package PACKAGE
      * @http-method post
      * @param int \$id* ID
      * @param string \$name* NAME
