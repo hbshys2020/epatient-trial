@@ -53,7 +53,7 @@ class Controller extends Command
 # Trial Version: {{TRIAL_VERSION}}
 #########################################################################
 
-class {{Controller}}Controller extends \Auth\Api {
+class {{Controller}}Controller extends \Controller\Api {
     /**
      * 详情 version
      * @package  PACKAGE
@@ -69,7 +69,7 @@ class {{Controller}}Controller extends \Auth\Api {
      */
     public function detailAction() {
         ['id'=>\$id] = \$this->_required(['id']);
-        \$data = (new \{{Controller}}Model)->detail(\$id);
+        \$data = (new \Service\{{Controller}})->detail(\$id);
         return \$this->success(\$data);
     }
     /**
@@ -90,7 +90,7 @@ class {{Controller}}Controller extends \Auth\Api {
         \$this->_required(['page','page_size']);
         \$params = \$this->getQuery(['name']);
         \$page = \$this->getQuery(['page','page_size']);
-        \$data = (new \{{Controller}}Model)->search(\$params,\$page);
+        \$data = (new \Service\{{Controller}})->search(\$params,\$page);
         return \$this->success(\TYL\Util::opz(\$data));
     }
     /**
@@ -108,7 +108,7 @@ class {{Controller}}Controller extends \Auth\Api {
      */
     public function createAction() {
         \$params = \$this->_required(['name']);
-        \$data = (new \{{Controller}}Model)->create(\$params);
+        \$data = (new \Service\{{Controller}})->create(\$params);
         return \$this->success(\$data);
     }
     /**
@@ -127,7 +127,7 @@ class {{Controller}}Controller extends \Auth\Api {
      */
     public function updateAction() {
         \$params = \$this->_required(['id','name']);
-        \$data = (new \{{Controller}}Model)->update(\$params);
+        \$data = (new \Service\{{Controller}})->update(\$params);
         return \$this->success(\$data);
     }
 }

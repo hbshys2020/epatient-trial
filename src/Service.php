@@ -53,12 +53,14 @@ class Service extends Command
 # Trial Version: {{TRIAL_VERSION}}
 #########################################################################
 
+namespace Service;
+
 class {{Service}} {
     /**
      * 详情 version
      * @package  PACKAGE
      * @param string \$id* ID
-     * @return json
+     * @return object
      *
      */
     public function detail(\$id) {
@@ -68,12 +70,15 @@ class {{Service}} {
     /**
      * 列表 version
      * @package  PACKAGE
-     * @param int \$params* PARAMS
-     * @return json
+     * @param array \$params* 查询参数
+     * @param array \$page 分页
+     * @param array \$order 排序
+     * @param array \$fields 字段
+     * @return object
      *
      */
-    public function search(\$params,\$page=[]) {
-        \$query = \{{Service}}Model::select('*');
+    public function search(\$params, \$page=[], \$order=[['id','DESC']], \$fields=['*']) {
+        \$query = \TagModel::select(\$fields);
         \$query->where(function(\$query) use (\$params) {
             foreach(\$params as \$column => \$val){
                 if(\$val === '') continue;
@@ -86,6 +91,11 @@ class {{Service}} {
                 }
             }
         });
+        if(!empty(\$order)){
+            foreach(\$order as \$val){
+                \$query->orderBy(...\$val);
+            }
+        }
         \$page = array_filter(\$page);
         if(\$page){
             \$page['page']      = \$page['page']      ?? 1;
@@ -100,7 +110,7 @@ class {{Service}} {
      * 创建 version
      * @package  PACKAGE
      * @param string \$params* PARAMS
-     * @return json
+     * @return object
      *
      */
     public function create(\$params) {
@@ -111,7 +121,7 @@ class {{Service}} {
      * 更新 version
      * @package  PACKAGE
      * @param string \$params* PARAMS
-     * @return json
+     * @return object
      *
      */
     public function update(\$params) {

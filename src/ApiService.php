@@ -53,6 +53,8 @@ class ApiService extends Command
 # Trial Version: {{TRIAL_VERSION}}
 #########################################################################
 
+namespace Service;
+
 class {{Service}} {
     /**
      * 详情 version
