@@ -62,10 +62,6 @@ class {{Controller}}Controller extends \Controller\Api {
      *
      * @return json
      *
-     * 字段 | 类型 | 描述
-     * ---- | ---- | ----
-     * id | int | ID
-     *
      */
     public function detailAction() {
         ['id'=>\$id] = \$this->_required(['id']);
@@ -80,10 +76,6 @@ class {{Controller}}Controller extends \Controller\Api {
      * @param int \$page_size* PAGESIZE
      *
      * @return json
-     *
-     * 字段 | 类型 | 描述
-     * ---- | ---- | ----
-     * data | array | DATA
      *
      */
     public function searchAction() {
@@ -101,10 +93,6 @@ class {{Controller}}Controller extends \Controller\Api {
      *
      * @return json
      *
-     * 字段 | 类型 | 描述
-     * ---- | ---- | ----
-     * id | int | ID
-     *
      */
     public function createAction() {
         \$params = \$this->_required(['name']);
@@ -119,10 +107,6 @@ class {{Controller}}Controller extends \Controller\Api {
      * @param string \$name* NAME
      *
      * @return json
-     *
-     * 字段 | 类型 | 描述
-     * ---- | ---- | ----
-     * id | int | ID
      *
      */
     public function updateAction() {

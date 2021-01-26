@@ -78,7 +78,7 @@ class {{Service}} {
      *
      */
     public function search(\$params, \$page=[], \$order=[['id','DESC']], \$fields=['*']) {
-        \$query = \TagModel::select(\$fields);
+        \$query = \{{Service}}Model::select(\$fields);
         \$query->where(function(\$query) use (\$params) {
             foreach(\$params as \$column => \$val){
                 if(\$val === '') continue;
