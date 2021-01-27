@@ -54,9 +54,9 @@ class Model extends Command
         }
         $fields = [];
         if(isset($rows[0])) {
-            // $fields = $rows[0];
-            // $table->setHeaders(array_keys($fields))->setRows($rows);
-            // $table->render();
+            $fields = $rows[0];
+            $table->setHeaders(array_keys($fields))->setRows($rows);
+            $table->render();
         }else{
             $output->writeln('<error>没有找到有效数据</error>');
             return Command::FAILURE;

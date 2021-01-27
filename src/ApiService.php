@@ -65,7 +65,7 @@ class {{Service}} {
      */
     public function detail(\$id) {
         \$data = (new \{{Service}}Model)->detail(\$id);
-        return \$this->success(\$data);
+        return \$data;
     }
     /**
      * 列表 VERSION

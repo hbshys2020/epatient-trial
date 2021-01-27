@@ -65,7 +65,7 @@ class {{Service}} {
      */
     public function detail(\$id) {
         \$data = (new \{{Service}}Model)->detail(\$id);
-        return \$this->success(\$data);
+        return \$data;
     }
     /**
      * 列表 VERSION
@@ -77,7 +77,7 @@ class {{Service}} {
      * @return object
      *
      */
-    public function search(\$params, \$page=[], \$order=[['id','DESC']], \$fields=['*']) {
+    public function search(\$params, \$page=[], \$order=['id'=>'DESC'], \$fields=['*']) {
         \$query = \{{Service}}Model::select(\$fields);
         \$query->where(function(\$query) use (\$params) {
             foreach(\$params as \$column => \$val){
@@ -92,8 +92,8 @@ class {{Service}} {
             }
         });
         if(!empty(\$order)){
-            foreach(\$order as \$val){
-                \$query->orderBy(...\$val);
+            foreach(\$order as \$key=>\$val){
+                \$query->orderBy(\$key,\$val);
             }
         }
         \$page = array_filter(\$page);
